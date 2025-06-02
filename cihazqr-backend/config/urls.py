@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from devices.views import DeviceViewSet, DeviceNoteViewSet, DeviceDocumentViewSet
+from devices.views import DeviceViewSet, DeviceNoteViewSet, DeviceDocumentViewSet, FaultRecordViewSet, FaultDocumentViewSet
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -25,6 +25,8 @@ router = routers.DefaultRouter()
 router.register(r'devices', DeviceViewSet)
 router.register(r'devicenotes', DeviceNoteViewSet)
 router.register(r'devicedocuments', DeviceDocumentViewSet)
+router.register(r'faultrecords', FaultRecordViewSet)
+router.register(r'faultdocuments', FaultDocumentViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

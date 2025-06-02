@@ -21,7 +21,7 @@ alwaysApply: true
 - Minimal, sade, bol boşluklu, tipografi odaklı
 - Soft geçiş animasyonları (Framer Motion)
 - Responsive ve mobile-first
-- Koyu tema varsayılan, açık tema opsiyonel
+- Açık tema varsayılan
 - Büyük başlıklar, net ikonografi, yüksek kontrast
 - Dikkat dağıtmayan renkler, 1 ana accent (mavi/yeşil/teal)
 - Sidebar navigation, sticky ve daraltılabilir

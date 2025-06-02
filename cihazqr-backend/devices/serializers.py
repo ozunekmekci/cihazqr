@@ -18,5 +18,8 @@ class DeviceSerializer(serializers.ModelSerializer):
     documents = DeviceDocumentSerializer(many=True, read_only=True)
     class Meta:
         model = Device
-        fields = '__all__'
+        fields = [
+            'id', 'hash_id', 'name', 'description', 'brand', 'model', 'serial', 'location', 'status',
+            'last_maintenance', 'qr_url', 'created_at', 'notes', 'documents'
+        ]
         # notes ve documents alanları, cihaz detayında ilişkili not ve belgeleri göstermek için eklendi. 

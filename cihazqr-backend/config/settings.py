@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'devices',
     'corsheaders',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+# DRF filtreleme için django-filter backend
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+}

@@ -4,6 +4,7 @@ from django.dispatch import receiver
 from django.db.models.signals import post_delete
 from django.utils.text import slugify
 from datetime import datetime
+import hashlib
 
 # Create your models here.
 
@@ -18,9 +19,20 @@ class Device(models.Model):
     last_maintenance = models.DateField(null=True, blank=True)
     qr_url = models.URLField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    hash_id = models.CharField(max_length=10, unique=True, blank=True)
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        # Cihaz adı, seri no, marka ve model birleştirilip SHA256 ile hashlenir, ilk 10 karakter alınır.
+        if not self.hash_id:
+            base = f"{self.name or ''}{self.serial or ''}{self.brand or ''}{self.model or ''}"
+            if not base:
+                base = str(self.created_at)  # fallback
+            hash_val = hashlib.sha256(base.encode()).hexdigest()[:10]
+            self.hash_id = hash_val
+        super().save(*args, **kwargs)
 
 class DeviceNote(models.Model):
     device = models.ForeignKey(Device, on_delete=models.CASCADE, related_name='notes')

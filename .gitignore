@@ -1,0 +1,37 @@
+# Node.js
+node_modules/
+.next/
+.env
+.env.*
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Django
+*.log
+media/
+staticfiles/
+
+# VSCode
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Test/coverage
+coverage/
+*.cover
+*.py,cover
+
+# Diğer
+*.swp
+*.swo
+.idea/ 
